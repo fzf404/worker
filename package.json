@@ -1,0 +1,27 @@
+{
+  "name": "worker",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "lint": "eslint --cache --fix . && stylelint --cache --fix '**/*.scss'",
+    "deploy": "wrangler deploy",
+    "format": "prettier --cache --write ."
+  },
+  "dependencies": {
+    "itty-router": "^4.0.14"
+  },
+  "devDependencies": {
+    "@fzf404/eslint-config": "^0.4.6",
+    "@fzf404/prettier-config": "^0.5.3",
+    "eslint": "^8.47.0",
+    "prettier": "^3.0.1",
+    "wrangler": "^3.0.0"
+  },
+  "prettier": "@fzf404/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "@fzf404/eslint-config"
+    ]
+  }
+}
