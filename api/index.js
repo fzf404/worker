@@ -18,6 +18,13 @@ router.get(
     ),
 )
 
+router.get('/chat/*', async (request) => {
+  const url = new URL(request.url)
+  url.hostname = 'api.openai.com'
+  url.pathname = url.pathname.replace('/chat', '')
+  return await fetch(new Request(url, request))
+})
+
 router.post('/chat/*', async (request) => {
   const url = new URL(request.url)
   url.hostname = 'api.openai.com'
