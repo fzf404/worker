@@ -10,9 +10,9 @@ My personal Cloudflare Workers ( 我的 Cloudflare 云服务配置 )
 
 ## Usage ( 使用 )
 
-- NPM proxy ( NPM 代理 ): [cdn.fzf404.art](https://cdn.fzf404.art)
-- OpenAI proxy ( OpenAI 代理 ): [api.fzf404.art/chat](https://api.fzf404.art/chat)
-- NeteaseCloudMusic proxy ( 网易云音乐代理 ): [api.fzf404.art/chat](https://api.fzf404.art/chat)
+- NPM proxy ( NPM 代理 ) : [cdn.fzf404.art](https://cdn.fzf404.art)
+- OpenAI proxy ( OpenAI 代理 ) : [api.fzf404.art/chat](https://api.fzf404.art/chat)
+- NeteaseCloudMusic proxy ( 网易云音乐代理 ) : [api.fzf404.art/chat](https://api.fzf404.art/chat)
 
 ## Deploy ( 部署 )
 
@@ -22,7 +22,7 @@ My personal Cloudflare Workers ( 我的 Cloudflare 云服务配置 )
 
 3. Deploy Worker ( 部署 Worker )
 
-```bash
-wrangler deploy -c cdn/wrangler.toml # NPM
-wrangler deploy -c api/wrangler.toml # OpenAI & NeteaseCloudMusic
-```
+   ```bash
+   wrangler deploy -c cdn/wrangler.toml # NPM
+   wrangler deploy -c api/wrangler.toml # OpenAI & NeteaseCloudMusic
+   ```
