@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "wrangler dev",
-    "lint": "eslint --cache --fix . && stylelint --cache --fix '**/*.scss'",
+    "lint": "eslint --cache --fix .",
     "deploy": "wrangler deploy",
     "format": "prettier --cache --write ."
   },
