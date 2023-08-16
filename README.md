@@ -12,7 +12,7 @@ My personal Cloudflare Workers ( 我的 Cloudflare 云服务配置 )
 
 - NPM proxy ( NPM 代理 ) : [cdn.fzf404.art](https://cdn.fzf404.art)
 - OpenAI proxy ( OpenAI 代理 ) : [api.fzf404.art/chat](https://api.fzf404.art/chat)
-- NeteaseCloudMusic proxy ( 网易云音乐代理 ) : [api.fzf404.art/chat](https://api.fzf404.art/chat)
+- NeteaseCloudMusic proxy ( 网易云音乐代理 ) : [api.fzf404.art/music](https://api.fzf404.art/music)
 
 ## Deploy ( 部署 )
 
