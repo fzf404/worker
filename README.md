@@ -11,8 +11,8 @@ My personal Cloudflare Workers ( 我的 Cloudflare 云服务配置 )
 
 ## Usage ( 使用 )
 
-- NPM proxy ( NPM 代理 ) : [cdn.fzf404.art](https://cdn.fzf404.art/npm)
-- GitHub proxy ( GitHub 代理 ) : [cdn.fzf404.art](https://cdn.fzf404.art/gh)
+- NPM proxy ( NPM 代理 ) : [cdn.fzf404.art/npm](https://cdn.fzf404.art/npm)
+- GitHub proxy ( GitHub 代理 ) : [cdn.fzf404.art/gh](https://cdn.fzf404.art/gh)
 - OpenAI proxy ( OpenAI 代理 ) : [api.fzf404.art/chat](https://api.fzf404.art/chat)
 - NeteaseCloudMusic proxy ( 网易云音乐代理 ) : [api.fzf404.art/music](https://api.fzf404.art/music)
 
