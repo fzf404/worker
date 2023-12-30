@@ -9,14 +9,14 @@
     "format": "prettier --cache --write ."
   },
   "dependencies": {
-    "itty-router": "^4.0.23"
+    "itty-router": "^4.0.25"
   },
   "devDependencies": {
-    "@fzf404/eslint-config": "^0.5.7",
+    "@fzf404/eslint-config": "^0.5.9",
     "@fzf404/prettier-config": "^0.7.0",
-    "eslint": "^8.51.0",
-    "prettier": "^3.0.3",
-    "wrangler": "^3.13.2"
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "wrangler": "^3.22.1"
   },
   "prettier": "@fzf404/prettier-config",
   "eslintConfig": {
