@@ -4,19 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "wrangler dev",
-    "lint": "eslint --cache --fix .",
+    "login": "wrangler login",
     "deploy": "wrangler deploy",
+    "lint": "eslint --cache --fix .",
     "format": "prettier --cache --write ."
   },
   "dependencies": {
-    "itty-router": "^4.0.25"
+    "itty-router": "^4.2.2"
   },
   "devDependencies": {
-    "@fzf404/eslint-config": "^0.5.9",
+    "@fzf404/eslint-config": "^0.5.12",
     "@fzf404/prettier-config": "^0.7.0",
-    "eslint": "^8.56.0",
-    "prettier": "^3.1.1",
-    "wrangler": "^3.22.1"
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "wrangler": "^3.37.0"
   },
   "prettier": "@fzf404/prettier-config",
   "eslintConfig": {
