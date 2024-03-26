@@ -27,7 +27,7 @@ My personal Cloudflare Workers ( 我的 Cloudflare 云服务配置 )
 
 ```bash
 # 1. Install Dependencies ( 安装依赖 )
-pnpm install
+pnpm install -r
 
 # 2. Login Wrangler ( 登陆 Wrangler )
 pnpm run login
