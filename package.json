@@ -1,16 +1,11 @@
 {
   "name": "worker",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
-    "dev": "wrangler dev",
     "login": "wrangler login",
-    "deploy": "wrangler deploy",
     "lint": "eslint --cache --fix .",
     "format": "prettier --cache --write ."
-  },
-  "dependencies": {
-    "itty-router": "^4.2.2"
   },
   "devDependencies": {
     "@fzf404/eslint-config": "^0.5.12",

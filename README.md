@@ -23,9 +23,8 @@ My personal Cloudflare Workers ( 我的 Cloudflare 云服务配置 )
 pnpm install
 
 # 2. Login Wrangler ( 登陆 Wrangler )
-pnpm login
+pnpm run login
 
 # 3. Deploy Wrangler ( 部署 Wrangler )
-wrangler deploy -c cdn/wrangler.toml # NPM & GitHub Porxy
-wrangler deploy -c api/wrangler.toml # OpenAI & NeteaseCloudMusic API
+pnpm run -r deploy
 ```

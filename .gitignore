@@ -2,8 +2,12 @@
 .DS_Store
 
 # cache
+.wrangler
 .eslintcache
 
 # package
 node_modules
 pnpm-lock.yaml
+
+# secret
+.dev.vars
