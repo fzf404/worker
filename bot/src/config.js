@@ -1,5 +1,5 @@
-export const USER = {
-  '@XiaoMouz': [
+export const user = {
+  XiaoMouz: [
     {
       type: 'sticky',
       keywords: ['💦', '🐳', '喷水'],

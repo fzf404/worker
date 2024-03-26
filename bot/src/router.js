@@ -1,27 +1,20 @@
-import { error, Router } from 'itty-router'
+import { Router, text } from 'itty-router'
 
-import { sendMessage } from './api'
-
+import { handleWebhook } from './service'
 const router = Router()
 
 router.post('/webhook', async (request, env) => {
-  const body = await request.json()
-  console.log(body)
+  // Authentication
   if (
     request.headers.get('X-Telegram-Bot-Api-Secret-Token') !==
     env.TELEGRAM_WEBHOOK_KEY
   ) {
-    return error(403)
+    return text('Unauthorized', { status: 403 })
   }
-  const { message } = body
-  return await sendMessage(
-    env,
-    message.chat.id,
-    message.text,
-    message.message_id,
-  )
+  // Handle Message
+  await handleWebhook(request, env)
+  // Return Response
+  return text('Ok')
 })
-
-router.all('*', () => error(404))
 
 export { router }
