@@ -13,7 +13,9 @@ router.get('/gh/*', async (request) => {
   const path = url.pathname.replace('/gh/', '')
   const response = await fetch(`https://cdn.jsdelivr.net/gh/fzf404/${path}`)
   if (response.status === 400) {
-    return new Response('The URL structure is /gh/package@version/file')
+    return text('The URL structure is /gh/package@version/file', {
+      status: 400,
+    })
   }
   return response
 })
@@ -23,7 +25,9 @@ router.get('/npm/*', async (request) => {
   const path = url.pathname.replace('/npm/', '')
   const response = await fetch(`https://cdn.jsdelivr.net/npm/${path}`)
   if (response.status === 400) {
-    return new Response('The URL structure is /npm/package@version/file')
+    return text('The URL structure is /gh/package@version/file', {
+      status: 400,
+    })
   }
   return response
 })
@@ -34,7 +38,9 @@ router.get('/*', async (request) => {
   return await fetch(`https://www.unpkg.com/${path}`)
 })
 
-router.all('*', () => new Response('Not Found', { status: 404 }))
+router.all('*', () => text('Not Found'), {
+  status: 404,
+})
 
 export default {
   async fetch(request) {
