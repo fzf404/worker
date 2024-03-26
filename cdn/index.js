@@ -1,23 +1,12 @@
-import { Router } from 'itty-router'
+import { Router, text } from 'itty-router'
 
 const router = Router()
 
-router.get('/favicon.ico', () => new Response('Not Found', { status: 404 }))
+router.get('/', () => text('The URL structure is /package@version/file'))
 
-router.get(
-  '/',
-  () => new Response('The URL structure is /package@version/file'),
-)
+router.get('/gh', () => text('The URL structure is /gh/repo@version/file'))
 
-router.get(
-  '/gh',
-  () => new Response('The URL structure is /gh/package@version/file'),
-)
-
-router.get(
-  '/npm',
-  () => new Response('The URL structure is /npm/package@version/file'),
-)
+router.get('/npm', () => text('The URL structure is /npm/package@version/file'))
 
 router.get('/gh/*', async (request) => {
   const url = new URL(request.url)
