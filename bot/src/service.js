@@ -8,7 +8,7 @@ export const handleWebhook = async (request, env) => {
   console.log(body)
   // New Message
   if ('message' in body) {
-    handleMessage(body.message, env)
+    await handleMessage(body.message, env)
   }
 }
 
