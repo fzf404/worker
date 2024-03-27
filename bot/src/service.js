@@ -14,16 +14,13 @@ export const handleWebhook = async (request, env) => {
 
 export const handleMessage = async (message, env) => {
   // Message Data
-  const { chat, text, message_id } = message
+  const { chat, text, sticker, message_id } = message
   // Private Chat
   if (chat.type === 'private') {
-    if (text) {
-      // Get OpenAI Answer
-      const answer = await getAnswer(env, text, user['XiaoMouz'][1].prompt)
-      // Reply Private Message
-      await sendMessage(env, chat.id, answer, message_id)
-    } else {
-      await sendMessage(env, chat.id, '别发表情包', message_id)
-    }
+    const msg = text ?? (sticker ? sticker.emoji : '向你发送了一张图片')
+    // Get OpenAI Answer
+    const answer = await getAnswer(env, msg, user['XiaoMouz'][1].prompt)
+    // Reply Private Message
+    await sendMessage(env, chat.id, answer, message_id)
   }
 }
