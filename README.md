@@ -23,15 +23,16 @@ My personal Cloudflare Workers ( 我的 Cloudflare 云服务配置 )
   - [https://cdn.fzf404.art/npm](https://cdn.fzf404.art/npm)
 - Telegram Bot ( Telegram 机器人 )
   - [https://t.me/no_xiaomouz_bot](https://t.me/no_xiaomouz_bot)
+
 ## Deploy ( 部署 )
 
 ```bash
-# 1. Install Dependencies ( 安装依赖 )
+# 1. Install All Dependencies ( 安装全部依赖 )
 pnpm install --recursive
 
 # 2. Login Wrangler ( 登陆 Wrangler )
 pnpm run login
 
-# 3. Deploy All Wrangler ( 部署全部 Wrangler )
+# 3. Deploy All Worker ( 部署全部服务 )
 pnpm run -r deploy
 ```
