@@ -1,5 +1,6 @@
 export const keyword = {
   淫: '银',
+  口交: '咬',
   鸡巴: '几把',
 }
 
@@ -18,5 +19,3 @@ export const user = {
     },
   ],
 }
-
-

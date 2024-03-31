@@ -20,8 +20,12 @@ export const getAnswer = async (env, message, prompt) => {
         { role: 'user', content: message },
       ],
     })
+    // Debug
+    console.log(answer.choices[0].message)
     return answer.choices[0].message.content
   } catch ({ error }) {
+    // Debug
+    console.log(error.message)
     return error.message
   }
 }
