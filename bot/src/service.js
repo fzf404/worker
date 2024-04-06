@@ -18,7 +18,7 @@ export const handleMessage = async (message, env) => {
   // Private Chat
   if (
     chat.type === 'private' ||
-    /xiaomo|小莫/i.test(text) ||
+    /xiaomo|小莫|莫比/i.test(text) ||
     (reply_to_message && reply_to_message.from.username === 'no_xiaomouz_bot')
   ) {
     const msg = text ?? (sticker ? sticker.emoji : '向你发送了一张图片')
