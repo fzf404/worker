@@ -1,4 +1,8 @@
-export const replaceKeyword = (str, keyword) => {
-  const pattern = new RegExp(Object.keys(keyword).join('|'), 'g')
-  return str.replace(pattern, (match) => keyword[match])
+export const containKeyword = (message, keyword) => {
+  return keyword.some((word) => message.includes(word))
+}
+
+export const replaceKeyword = (message, keyword) => {
+  const regex = new RegExp(Object.keys(keyword).join('|'), 'g')
+  return message.replace(regex, (match) => keyword[match])
 }

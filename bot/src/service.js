@@ -1,30 +1,58 @@
-import { getAnswer, sendMessage } from './api'
-import { user } from './config'
+import { getAnswer, sendMessage, sendSticker } from './api'
+import { config } from './config'
+import { containKeyword } from './utils'
 
 export const handleWebhook = async (request, env) => {
   // Parse Request Body
   const body = await request.json()
   // Debug
   console.log(body)
-  // New Message
+  // Handle New Message
   if ('message' in body) {
-    await handleMessage(body.message, env)
+    return await handleMessage(body.message, env)
   }
 }
 
 export const handleMessage = async (message, env) => {
-  // Message Data
-  const { chat, text, sticker, message_id, reply_to_message } = message
-  // Private Chat
+  const { chat, text, reply_to_message } = message
+  // Handle Message From
   if (
     chat.type === 'private' ||
-    /xiaomo|小莫|莫比/i.test(text) ||
-    (reply_to_message && reply_to_message.from.username === 'no_xiaomouz_bot')
+    (reply_to_message && reply_to_message.from.username === config.username) ||
+    (text && containKeyword(text, config.keywords))
   ) {
-    const msg = text ?? (sticker ? sticker.emoji : '向你发送了一张图片')
-    // Get OpenAI Answer
-    const answer = await getAnswer(env, msg, user['XiaoMouz'][1].prompt)
-    // Reply Private Message
-    return await sendMessage(env, chat.id, answer, message_id)
+    return await sendReply(message, env)
   }
+}
+
+export const sendReply = async (message, env) => {
+  // Parse Message Data
+  let { chat, text, sticker, photo, voice, document, location, message_id } =
+    message
+
+  // Handle Text Message
+  if (text) {
+    for (const { keywords, sticker } of config.reply) {
+      if (containKeyword(text, keywords)) {
+        return await sendSticker(env, chat.id, sticker, message_id)
+      }
+    }
+  } else if (sticker) {
+    text = sticker.emoji
+  } else if (photo) {
+    text = '向你发送了一张图片'
+  } else if (voice) {
+    text = '向你发送了一段音频'
+  } else if (document) {
+    text = '向你发送了一份文件'
+  } else if (location) {
+    text = '向你发送了一个位置'
+  } else {
+    text = '向你发送了一条消息'
+  }
+
+  // Get OpenAI Answer
+  const answer = await getAnswer(env, text, config.prompt)
+  // Reply Message
+  return await sendMessage(env, chat.id, answer, message_id)
 }

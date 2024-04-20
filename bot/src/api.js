@@ -3,7 +3,7 @@ import OpenAI from 'openai'
 import { keyword } from './config'
 import { replaceKeyword } from './utils'
 
-// Send Message to OpenAI server
+// Send Message to OpenAI Server
 export const getAnswer = async (env, message, prompt) => {
   const openai = new OpenAI({
     apiKey: env.OPENAI_API_KEY,
@@ -42,6 +42,25 @@ export const sendMessage = async (env, chatId, message, replyId) => {
     },
   }
   // Send Message
+  return await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(params),
+  })
+}
+
+// Send Sticker to Telegram API
+export const sendSticker = async (env, chatId, sticker, replyId) => {
+  const url = `${env.TELEGRAM_API_URL}/bot${env.TELEGRAM_BOT_TOKEN}/sendSticker`
+  const params = {
+    sticker: sticker,
+    chat_id: chatId,
+    reply_parameters: {
+      message_id: replyId,
+    },
+  }
   return await fetch(url, {
     method: 'POST',
     headers: {
