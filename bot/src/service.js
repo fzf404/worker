@@ -29,7 +29,6 @@ export const sendReply = async (message, env) => {
   // Parse Message Data
   let { chat, text, sticker, photo, voice, document, location, message_id } =
     message
-
   // Handle Text Message
   if (text) {
     for (const { keywords, sticker } of config.reply) {
@@ -37,6 +36,7 @@ export const sendReply = async (message, env) => {
         return await sendSticker(env, chat.id, sticker, message_id)
       }
     }
+    // Handle Message Type
   } else if (sticker) {
     text = sticker.emoji
   } else if (photo) {
@@ -50,9 +50,20 @@ export const sendReply = async (message, env) => {
   } else {
     text = '向你发送了一条消息'
   }
-
+  // Get History Message
+  const history = JSON.parse(await env.bot.get(chat.id)) ?? []
+  // Push New Message
+  history.push({ role: 'user', content: text })
+  // History Size
+  if (history.length > 8) {
+    history.splice(0, 2)
+  }
   // Get OpenAI Answer
-  const answer = await getAnswer(env, text, config.prompt)
+  const answer = await getAnswer(env, history, config.prompt)
+  // Push New Answer
+  history.push({ role: 'assistant', content: answer })
+  // Save Message
+  await env.bot.put(chat.id, JSON.stringify(history))
   // Reply Message
   return await sendMessage(env, chat.id, answer, message_id)
 }

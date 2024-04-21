@@ -1,24 +1,16 @@
 import OpenAI from 'openai'
 
-import { keyword } from './config'
-import { replaceKeyword } from './utils'
-
 // Send Message to OpenAI Server
 export const getAnswer = async (env, message, prompt) => {
   const openai = new OpenAI({
     apiKey: env.OPENAI_API_KEY,
     baseURL: env.OPENAI_API_URL,
   })
-  // Replace Forbidden Words
-  message = replaceKeyword(message, keyword)
   try {
     // Get OpenAI Answer
     const answer = await openai.chat.completions.create({
       model: env.OEPNAI_API_MODEL,
-      messages: [
-        { role: 'system', content: prompt },
-        { role: 'user', content: message },
-      ],
+      messages: [{ role: 'system', content: prompt }, ...message],
     })
     // Debug
     console.log(answer.choices[0].message)
