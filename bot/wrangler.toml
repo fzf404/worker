@@ -10,4 +10,4 @@ OPENAI_API_URL = "https://api.wangyingzhe.cloud/v1/"
 
 [[kv_namespaces]]
 binding = "bot"
-id = "6f45683a3bc84dd0b89323da2a7b0052"
+id = "906ba71188a54caa88d208b900d14654"
