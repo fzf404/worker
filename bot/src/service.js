@@ -54,16 +54,16 @@ export const sendReply = async (message, env) => {
   const history = JSON.parse(await env.bot.get(chat.id)) ?? []
   // Push New Message
   history.push({ role: 'user', content: text })
-  // History Size
-  if (history.length > 8) {
-    history.splice(0, 2)
-  }
   // Get OpenAI Answer
   const answer = await getAnswer(env, history, config.prompt)
-  // Push New Answer
-  history.push({ role: 'assistant', content: answer })
   // Save Message
-  await env.bot.put(chat.id, JSON.stringify(history))
+  await env.bot.put(
+    chat.id,
+    JSON.stringify([
+      { role: 'user', content: text },
+      { role: 'assistant', content: answer },
+    ]),
+  )
   // Reply Message
   return await sendMessage(env, chat.id, answer, message_id)
 }

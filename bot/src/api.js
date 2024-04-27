@@ -13,7 +13,7 @@ export const getAnswer = async (env, message, prompt) => {
       messages: [{ role: 'system', content: prompt }, ...message],
     })
     // Debug
-    console.log(answer.choices[0].message)
+    console.log(answer.choices)
     return answer.choices[0].message.content
   } catch ({ error }) {
     // Debug
