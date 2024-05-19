@@ -44,6 +44,6 @@ router.all('*', () => text('Not Found'), {
 
 export default {
   async fetch(request) {
-    return router.handle(request)
+    return router.fetch(request)
   },
 }

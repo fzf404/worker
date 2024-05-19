@@ -1,13 +1,11 @@
-import { error, json, Router } from 'itty-router'
+import { AutoRouter } from 'itty-router'
 
-const router = Router()
+const router = AutoRouter()
 
-router.get('/', () =>
-  json({
-    chat: 'https://api.fzf404.art/chat',
-    music: 'https://api.fzf404.art/music',
-  }),
-)
+router.get('/', () => ({
+  chat: 'https://api.fzf404.art/chat',
+  music: 'https://api.fzf404.art/music',
+}))
 
 router.all('/chat/*', (request) => {
   const url = new URL(request.url)
@@ -23,10 +21,8 @@ router.all('/music/*', (request) => {
   return fetch(new Request(url, request))
 })
 
-router.all('*', () => error(404))
-
 export default {
   async fetch(request) {
-    return router.handle(request)
+    return router.fetch(request)
   },
 }
