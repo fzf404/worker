@@ -1,6 +1,6 @@
 import { getAnswer, sendMessage, sendSticker } from './api'
-import { config } from './config'
-import { containKeyword } from './utils'
+import { config, keyword } from './config'
+import { containKeyword, replaceKeyword } from './utils'
 
 export const handleWebhook = async (request, env) => {
   // Parse Request Body
@@ -31,12 +31,14 @@ export const sendReply = async (message, env) => {
     message
   // Handle Text Message
   if (text) {
+    // Handle Sticker Keywords
     for (const { keywords, sticker } of config.reply) {
       if (containKeyword(text, keywords)) {
         return await sendSticker(env, chat.id, sticker, message_id)
       }
     }
-    // Handle Message Type
+    // Replace Forbidden Words
+    text = replaceKeyword(text, keyword)
   } else if (sticker) {
     text = sticker.emoji
   } else if (photo) {
