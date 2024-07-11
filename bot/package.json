@@ -7,9 +7,9 @@
   },
   "dependencies": {
     "itty-router": "^5.0.17",
-    "openai": "^4.52.4"
+    "openai": "^4.52.7"
   },
   "devDependencies": {
-    "wrangler": "^3.63.1"
+    "wrangler": "^3.64.0"
   }
 }
