@@ -6,8 +6,8 @@
     "deploy": "wrangler deploy"
   },
   "dependencies": {
-    "itty-router": "^5.0.17",
-    "openai": "^4.55.9"
+    "itty-router": "^5.0.18",
+    "openai": "^4.56.0"
   },
   "devDependencies": {
     "wrangler": "^3.72.0"
