@@ -9,6 +9,6 @@
     "itty-router": "^5.0.18"
   },
   "devDependencies": {
-    "wrangler": "^3.72.2"
+    "wrangler": "^3.72.3"
   }
 }
