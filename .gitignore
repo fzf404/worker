@@ -10,4 +10,4 @@ node_modules
 pnpm-lock.yaml
 
 # secret
-.dev.vars
+bot/wrangler.toml

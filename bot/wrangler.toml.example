@@ -1,0 +1,17 @@
+name = "bot"
+main = "src/index.js"
+compatibility_date = "2024-03-20"
+
+[vars]
+OEPNAI_API_MODEL = "gpt-4o"
+OPENAI_API_URL = "https://api.openai.com/v1/"
+OPENAI_API_KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+TELEGRAM_WEBHOOK_KEY = "xxxxxxxxxxxxxxxx"
+TELEGRAM_API_URL = "https://api.telegram.org"
+TELEGRAM_BOT_TOKEN = "xxxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+
+[[kv_namespaces]]
+binding = "bot"
+id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
