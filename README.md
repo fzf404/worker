@@ -33,6 +33,10 @@ pnpm install --recursive
 # 2. Login Wrangler ( 登陆 Wrangler )
 pnpm run login
 
-# 3. Deploy All Worker ( 部署全部服务 )
+# 3. Edit Bot Config ( 编辑 Bot 配置 )
+mv bot/wrangler.toml.example bot/wrangler.toml 
+vim wrangler.toml 
+
+# 4. Deploy All Worker ( 部署全部服务 )
 pnpm run -r deploy
 ```
