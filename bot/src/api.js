@@ -1,7 +1,7 @@
 import OpenAI from 'openai'
 
 // Send Message to OpenAI Server
-export const getAnswer = async (env, message, prompt) => {
+export const getAnswer = async (env, prompt, message) => {
   const openai = new OpenAI({
     apiKey: env.OPENAI_API_KEY,
     baseURL: env.OPENAI_API_URL,

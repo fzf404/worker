@@ -3,12 +3,12 @@ main = "src/index.js"
 compatibility_date = "2024-03-20"
 
 [vars]
-OEPNAI_API_MODEL = "gpt-4o"
+OEPNAI_API_MODEL = "gpt-3.5-turbo"
 OPENAI_API_URL = "https://api.openai.com/v1/"
-OPENAI_API_KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+OPENAI_API_KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
-TELEGRAM_WEBHOOK_KEY = "xxxxxxxxxxxxxxxx"
 TELEGRAM_API_URL = "https://api.telegram.org"
+TELEGRAM_WEBHOOK_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 TELEGRAM_BOT_TOKEN = "xxxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 

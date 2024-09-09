@@ -57,7 +57,7 @@ export const sendReply = async (message, env) => {
   // Push New Message
   history.push({ role: 'user', content: text })
   // Get OpenAI Answer
-  const answer = await getAnswer(env, history, config.prompt)
+  const answer = await getAnswer(env, config.prompt, history)
   // Save Message
   await env.bot.put(
     chat.id,
