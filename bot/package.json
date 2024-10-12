@@ -10,6 +10,6 @@
     "openai": "^4.67.3"
   },
   "devDependencies": {
-    "wrangler": "^3.80.3"
+    "wrangler": "^3.80.4"
   }
 }
