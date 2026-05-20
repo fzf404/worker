@@ -6,9 +6,9 @@
     "deploy": "wrangler deploy"
   },
   "dependencies": {
-    "itty-router": "^5.0.22"
+    "itty-router": "^5.0.23"
   },
   "devDependencies": {
-    "wrangler": "^4.40.1"
+    "wrangler": "^4.93.0"
   }
 }
